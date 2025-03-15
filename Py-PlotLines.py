@@ -76,11 +76,16 @@ jne_output.to_excel(result_file, index=False)
 
 #https://pythonspot.com/matplotlib-bar-chart/
 
+
+plot_results = jne_output.head(6)
+#print(jne_output["ESCO"])
+
+
 import matplotlib.pyplot as plt
 fig, ax = plt.subplots()
 
-categories = count_escos.index
-values = count_escos.values
+categories = plot_results["ESCO"]
+values = plot_results["counts"]
 
 ax.bar(categories, values)
 ax.set_title('Frequencies of Strings')
@@ -88,3 +93,4 @@ ax.set_xlabel('Sentences')
 ax.set_ylabel('Frequency')
 
 plt.show()
+
