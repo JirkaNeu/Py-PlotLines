@@ -19,7 +19,7 @@ except:
   except: print("check path...")
 
 
-jne_data = path + "_sample.txt"
+jne_data = path + "sample.txt"
 
 #---------------------------- get data ----------------------------#
 try:
@@ -37,6 +37,7 @@ except:
              "(0.52); In Australia seatbelts are mandatory for all vehicle occupants.",
              "(0.56); The sun was shining brightly in the clear blue sky.",
              "(0.54); Birds chirping outside my window is calming me every morning.",
+             "(0.48)",
              "(0.43); The smell of freshly baked cookies filled the warm and cozy kitchen.",
              "(0.50); I'm looking forward to my summer vacation on the beautiful island beach.",
              "(0.58); A warm cup of coffee on a chilly morning is just what I need to start the day.",
@@ -73,6 +74,17 @@ result_file = path + "results.xlsx"
 jne_output.to_excel(result_file, index=False)
 
 
-
 #https://pythonspot.com/matplotlib-bar-chart/
 
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+
+categories = count_escos.index
+values = count_escos.values
+
+ax.bar(categories, values)
+ax.set_title('Frequencies of Strings')
+ax.set_xlabel('Sentences')
+ax.set_ylabel('Frequency')
+
+plt.show()
