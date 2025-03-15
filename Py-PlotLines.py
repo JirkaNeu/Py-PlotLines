@@ -19,7 +19,7 @@ except:
   except: print("check path...")
 
 
-jne_data = path + "sample.txt"
+jne_data = path + "_sample.txt"
 
 #---------------------------- get data ----------------------------#
 try:
@@ -77,17 +77,15 @@ jne_output.to_excel(result_file, index=False)
 #https://pythonspot.com/matplotlib-bar-chart/
 
 
-plot_results = jne_output.head(6)
-#print(jne_output["ESCO"])
-
-
 import matplotlib.pyplot as plt
 fig, ax = plt.subplots()
 
-categories = plot_results["ESCO"]
-values = plot_results["counts"]
+plot_results = jne_output.head(6)
+cats = plot_results["ESCO"].apply(lambda x: str(x)[:10])
 
-ax.bar(categories, values)
+vals = plot_results["counts"]
+
+ax.bar(cats, vals)
 ax.set_title('Frequencies of Strings')
 ax.set_xlabel('Sentences')
 ax.set_ylabel('Frequency')
