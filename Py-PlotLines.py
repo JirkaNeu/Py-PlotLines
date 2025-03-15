@@ -89,6 +89,7 @@ ax.bar(cats, vals)
 ax.set_title('Frequencies of Strings')
 ax.set_xlabel('Sentences')
 ax.set_ylabel('Frequency')
+plt.xticks(rotation=45, ha='right')
 
 plt.show()
 
