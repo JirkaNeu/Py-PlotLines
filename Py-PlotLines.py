@@ -66,6 +66,7 @@ for i in range(iterations):
     line_check = this_line
   exec('try:loogress(i, iterations)\nexcept:print("working...")')
 
+#---- export results to excel ----#
 jne_results = pd.DataFrame()
 jne_results = jne_results.assign(ESCO_Skills=results)
 count_escos = jne_results['ESCO_Skills'].value_counts()
@@ -75,8 +76,6 @@ jne_output.to_excel(result_file, index=False)
 
 
 #https://pythonspot.com/matplotlib-bar-chart/
-
-
 import matplotlib.pyplot as plt
 fig, ax = plt.subplots()
 
